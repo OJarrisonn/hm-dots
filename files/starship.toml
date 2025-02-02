@@ -1,0 +1,326 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$character\
+[](color_seg0)\
+$shell\
+$os\
+$username\
+[](bg:color_seg1 fg:color_seg0)\
+$directory\
+${custom.yazi}\
+[](fg:color_seg1 bg:color_seg2)\
+$git_branch\
+$git_status\
+[](fg:color_seg2 bg:color_seg3)\
+$c\
+$cmake\
+$rust\
+$golang\
+$nodejs\
+$bun\
+$deno\
+$java\
+$kotlin\
+${custom.leiningen}\
+$scala\
+$haskell\
+$elixir\
+$erlang\
+$python\
+$mojo\
+$zig\
+[](fg:color_seg3 bg:color_bg3)\
+$package\
+$docker_context\
+$conda\
+$nix_shell\
+[](fg:color_bg3 bg:color_bg1)\
+$fill\
+$cmd_duration\
+$time\
+$battery\
+[ ](fg:color_bg1)\
+$line_break"""
+
+palette = 'catppuccin_mocha'
+
+[palettes.catppuccin_mocha]
+color_fg0 = '#11111b'
+color_fg1 = '#cdd6f4'
+color_bg1 = '#1e1e2e'
+color_bg2 = '#181825'
+color_bg3 = '#11111b'
+color_rosewater = '#f5e0dc'
+color_flamingo = '#f2cdcd'
+color_pink = '#f5c2e7'
+color_mauve = '#cba6f7'
+color_red = '#f38ba8'
+color_maroon = '#eba0ac'
+color_peach = '#fab387'
+color_yellow = '#f9e2af'
+color_green = '#a6e3a1'
+color_teal = '#94e2d5'
+color_sky = '#89dceb'
+color_sapphire = '#74c7ec'
+color_blue = '#89b4fa'
+color_lavender = '#b4befe'
+color_seg0 = '#cba6f7'
+color_seg1 = '#fab387'
+color_seg2 = '#a6e3a1'
+color_seg3 = '#89dceb'
+
+[os]
+disabled = false
+style = "bg:color_seg0 fg:color_fg0"
+format = "[$symbol ]($style)"
+
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = ""
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = ""
+
+[shell]
+disabled = false
+bash_indicator = ""
+nu_indicator = ""
+powershell_indicator = "󰨊"
+zsh_indicator = ""
+unknown_indicator = ""
+style = "bg:color_seg0 fg:color_fg0"
+format = "[$indicator  ]($style)"
+
+[username]
+show_always = false
+style_user = "bg:color_seg0 fg:color_fg0"
+style_root = "bg:color_seg0 fg:color_fg0"
+format = '[$user ]($style)'
+
+[directory]
+style = "fg:color_fg0 bg:color_seg1"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"~/Documents" = "󰈙 "
+"~/Downloads" = " "
+"~/Music" = "󰝚 "
+"~/Pictures" = " "
+"~/.config" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:color_seg2"
+format = '[[ $symbol $branch ](fg:color_fg0 bg:color_seg2)]($style)'
+
+[git_status]
+style = "bg:color_seg2"
+conflicted = "=${count}"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "\\$${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_seg2)]($style)'
+
+[aws]
+symbol = " "
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[buf]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[bun]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[c]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[dart]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[elixir]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[elm]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[guix_shell]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[haxe]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[java]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[julia]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[lua]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[meson]
+symbol = "󰔷"
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[mojo]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[nim]
+symbol = "󰆥"
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[rust]
+symbol = " "
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[scala]
+symbol = " "
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[php]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[python]
+symbol = ""
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[package]
+symbol = "󰏗"
+style = "bg:color_bg3"
+format = '[[ $symbol $version ](fg:color_mauve bg:color_bg3)]($style)'
+
+
+[docker_context]
+symbol = ""
+style = "bg:color_bg3"
+format = '[[ $symbol $context ](fg:color_mauve bg:color_bg3)]($style)'
+
+[conda]
+symbol = ""
+style = "bg:color_bg3"
+format = '[[ $symbol $environment ](fg:color_mauve bg:color_bg3)]($style)'
+
+[nix_shell]
+symbol = ""
+style = "bg:color_bg3"
+format = '[[ $symbol $name ](fg:color_mauve bg:color_bg3)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:color_bg1"
+format = '[[  $time ](fg:color_fg1 bg:color_bg1)]($style)'
+
+[cmd_duration]
+disabled = false
+style = "bg:color_bg1"
+format = '[[  $duration ](fg:color_fg1 bg:color_bg1)]($style)'
+
+[[battery.display]]
+threshold = 50
+style = "bg:color_bg1"
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:color_green)'
+error_symbol = '[ ](bold fg:color_red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_seg0)'
+vimcmd_replace_symbol = '[](bold fg:color_seg0)'
+vimcmd_visual_symbol = '[](bold fg:color_seg3)'
+format = '[$symbol]($style)'
+
+[custom.leiningen]
+symbol = "󱗞"
+command = "lein --version | cut -f 2 -d ' '"
+detect_files = ["project.clj"]
+style = "bg:color_seg3"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_seg3)]($style)'
+
+[custom.yazi]
+symbol = "󰇥 "
+style = "fg:color_fg0 bg:color_seg1"
+command = "$env.YAZI_LEVEL"
+format = '[$symbol($output) ]($style)'
+when = "($env.YAZI_LEVEL | into int) >= 1"
